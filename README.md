@@ -5,6 +5,8 @@ In this repo we are giving you a simple docker-compose setup that starts two dif
 - `evmos-devnet1`: v9.1.0
 - `evmos-devnet2`: v10.0.1
 
+NOTE: Please fork this repo to add your changes. DO NOT SUBMIT PRs to this repository.
+
 The mission is for you to expand the functionalities of this repo to accomplish the following tasks:
 
 1. Set up a Grafana dashboard instance through the same docker-compose setup, in which instance specific metrics of each of the nodes are displayed and can be compared (CPU, Memory etc..)
