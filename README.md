@@ -1,11 +1,15 @@
 # Dev Ops Take Home Challenge
 
-Your task is to start to local evmos devnets running on different versions and compare the two through different metrics on a Grafana dashboard. You would need to:
+In this repo we are giving you a simple docker-compose setup that starts two different evmos devnets running on different versions / releases using the instructions found below.
 
-1. Build and run two local one-node devnets using the docker-compose.yml file that is already is given.
-2. Set up a Grafana dashboard instance through the same docker-compose setup, in which instance specific metrics of each of the nodes are displayed and can be compared (CPU, Memory etc..)
-3. Expose some of the prometheus metrics that each node provides at `http://localhost:26660/metrics` through the Grafana dashboard
-4. (Optional) In order to get more interesting data, Add a tx-bot to the docker-compose setup so that it generates traffic on the node’s network. You can find the tx-bot repo [here](https://github.com/evmos/bots)
+- `evmos-devnet1`: v9.1.0
+- `evmos-devnet2`: v10.0.1
+
+The mission is for you to expand the functionalities of this repo to accomplish the following tasks:
+
+1. Set up a Grafana dashboard instance through the same docker-compose setup, in which instance specific metrics of each of the nodes are displayed and can be compared (CPU, Memory etc..)
+2. Expose some of the prometheus metrics that each node provides at `http://localhost:26660/metrics` through the Grafana dashboard. (e.g `feemarket_base_fee` is one that we are usually interested on)
+3. (Optional) In order to get more interesting data, Add a tx-bot to the docker-compose setup so that it generates traffic on the node’s network. You can find the tx-bot repo [here](https://github.com/evmos/bots)
 
 ## Run
 
@@ -48,7 +52,7 @@ You will need to run one tx-bot per devnet.
 - `tx-bot1` submits txs to `evmos-devnet1`
 - `tx-bot2` submits txs to `evmos-devnet2`
 
-In order to run the bot successfully you would need to Environment Variables.
+In order to run the bot successfully you would need two Environment Variables.
 
 1. `ORCH_PRIV_KEY` - In order to submit txs on the network, you need an account that has funds for those transactions. This address is specified in the `start.sh` file that starts the `evmos-devnet` represented as a `MNEMONIC`. Since both devnets (`evmos-devnet1` and `evmos-devnet2`) are started with the same `start.sh` file, we can use the same private key for both instances of the tx-bots.
 
