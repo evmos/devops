@@ -64,3 +64,22 @@ In order to run the bot successfully you would need two Environment Variables.
 
 - `RPC_URL=http://$NODE_ADDRESS:8545`
 
+# Evaluation Criteria
+
+Your solution will be evaluated based on the following criteria:
+
+- **Correctness**: Does the solution correctly set up a cosmos tx bot against a local devnet?
+- **Delivery**: Is the solution packaged for direct and automated deployment?
+- **Code quality**: Is the code well-organized, easy to understand, and maintainable?
+- **Documentation**: Is there enough documentation to reproduce the solution?
+- **Maintainability**: Are the components maintainable by other team members?
+
+# Additional Notes
+
+You do not need to worry about fulfilling all the criteria of the assignment. The focus is on making sure the DevOps engineer:
+
+- Has some development experience and able to write minimal code if needed
+- Has breadth of knowledge in DevOps tools such as Docker, compose, prometheus, grafana, k8s
+
+You do not need to finish all the steps. We will have a discussion/ demo in which we could discuss the approach and the code.
+
