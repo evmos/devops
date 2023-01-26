@@ -1,0 +1,40 @@
+version: "3"
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+  phlare_data: {}
+
+services:
+  evmos-devnet1:
+    image: evmos-devnet1
+    build:
+      context: ./evmos-devnet
+      args:
+        - commit_hash=tags/v9.1.0
+    restart: always
+    ports:
+      - 8545:8545
+      - 26660:26660
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:26657/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  evmos-devnet2:
+    image: evmos-devnet2
+    build:
+      context: ./evmos-devnet
+      args:
+        - commit_hash=tags/v10.0.0-rc2
+        - extra_flags=--metrics
+    restart: always
+    ports:
+      - 26661:26660
+      - 8546:8545
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:26657/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
